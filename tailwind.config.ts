@@ -1,12 +1,16 @@
 import type { Config } from "tailwindcss";
+/** @type {import('tailwindcss').Config} */
+// import { shadcnPreset } from "."
+
 
 const config = {
+  // presets: [shadcnPreset],
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
     "./constants/**/*.{ts,tsx}",
   ],
   prefix: "",
@@ -20,8 +24,10 @@ const config = {
     },
     extend: {
       colors: {
+        ring: "hsl(220,90%,56%)",
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
+          // border: "#e5e7eb",
         },
         bankGradient: "#0179FE",
         indigo: {

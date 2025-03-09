@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,7 +43,38 @@
   background: #7878a3;
 }
 
+@layer base {
+  :root {
+    --border: hsl(220, 15%, 60%);
+    --background: hsl(0, 0%, 98%);
+    --foreground: hsl(222, 47%, 11%);
+    --ring: hsl(220, 90%, 56%);
+  }
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+@layer components {
+  .border-border {
+    border-color: var(--border);
+  }
+}
+
 @layer utilities {
+  .outline-ring {
+    @apply ring-2 ring-[var(--ring)];
+  }
+
+  .bg-background {
+    background-color: var(--background);
+  }
+
+  .text-foreground {
+    color: var(--foreground);
+  }
+
   .input-class {
     @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
   }
@@ -375,5 +405,17 @@
 
   .sidebar-label {
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
+  }
+}
+
+@layer base {
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
